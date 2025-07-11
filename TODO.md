@@ -8,5 +8,5 @@
 - [x] Layout Component를 사용하여 기본 레이아웃 구현
 - [x] /페이지 스타일 추가
 - [x] /person/[id]페이지 스타일 추가
-- [ ] Suspense 추가
+- [x] Suspense 추가
 - [ ] 리팩터링

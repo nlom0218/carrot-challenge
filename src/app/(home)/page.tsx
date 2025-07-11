@@ -30,7 +30,7 @@ export default async function Home() {
             <Image src={billion.squareImage} alt={billion.name} fill />
             <div className="imageBackground" />
             <div className="billionInfo">
-              <h2>{billion.name} &gt;</h2>
+              <h2 className="billionName">{billion.name}</h2>
             </div>
           </div>
         </Link>

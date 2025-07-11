@@ -26,9 +26,9 @@ const getBillion: (id: string) => Promise<{
   about: string[];
   netWorth: number;
 }> = async (id) => {
-  return fetch(
-    `https://billions-api.nomadcoders.workers.dev/person/${id}`
-  ).then((res) => res.json());
+  return fetch(`https://billions-api.nomadcoders.workers.dev/person/${id}`, {
+    cache: 'force-cache',
+  }).then((res) => res.json());
 };
 
 export default async function Person({
