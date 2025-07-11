@@ -14,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body className="main">
+        <h1 className="title">세상에서 가장 돈이 많은 사람 TOP 400</h1>
+        {children}
+      </body>
     </html>
   );
 }
