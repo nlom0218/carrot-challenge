@@ -28,11 +28,11 @@ export default async function Person({
         <p>City: {billion.city}</p>
         <p>Net Worth: ${(billion.netWorth / 1000).toFixed(0)}M</p>
         <p>Industries: {billion.industries.join(', ')}</p>
-        <p>Bio: {billion.bio.join(', ')}</p>
-        <p>About: {billion.about.join(', ')}</p>
+        <p>Bio: {billion.bio?.join(', ')}</p>
+        <p>About: {billion.about?.join(', ')}</p>
         <h3>Financial Assets</h3>
         <div className="financialAssets">
-          {billion.financialAssets.map((asset, key) => (
+          {billion.financialAssets?.map((asset, key) => (
             <div className="financialAssetItem" key={key}>
               <p>{asset.companyName}</p>
               <p>{asset.ticker}</p>
