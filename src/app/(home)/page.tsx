@@ -1,15 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Billion } from '@/types/billion';
 
-const getBillions: () => Promise<
-  {
-    id: string;
-    name: string;
-    squareImage: string;
-    netWorth: string;
-    industries: string[];
-  }[]
-> = async () => {
+const getBillions: () => Promise<Billion[]> = async () => {
   return fetch('https://billions-api.nomadcoders.workers.dev/', {
     cache: 'force-cache',
   }).then((res) => res.json());
