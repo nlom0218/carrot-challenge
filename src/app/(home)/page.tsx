@@ -19,18 +19,20 @@ export default async function Home() {
   const billions = await getBillions();
 
   return (
-    <div>
+    <div className="billions">
       {billions.map((billion) => (
-        <Link key={billion.id} href={`/person/${billion.id}`}>
-          <Image
-            src={billion.squareImage}
-            alt={billion.name}
-            width={100}
-            height={100}
-          />
-          <h2>{billion.name}</h2>
-          <p>{billion.netWorth}</p>
-          <p>{billion.industries.join(', ')}</p>
+        <Link
+          key={billion.id}
+          href={`/person/${billion.id}`}
+          className="billion"
+        >
+          <div className="billionImage">
+            <Image src={billion.squareImage} alt={billion.name} fill />
+            <div className="imageBackground" />
+            <div className="billionInfo">
+              <h2>{billion.name} &gt;</h2>
+            </div>
+          </div>
         </Link>
       ))}
     </div>

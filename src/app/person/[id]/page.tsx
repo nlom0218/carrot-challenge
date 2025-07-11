@@ -39,40 +39,37 @@ export default async function Person({
   const { id } = await params;
   const billion = await getBillion(id);
 
-  console.log(billion);
-
   return (
-    <div>
-      <Image
-        src={billion.squareImage}
-        alt={billion.name}
-        width={100}
-        height={100}
-      />
+    <div className="billionDetail">
+      <div className="billionDetailImage">
+        <Image src={billion.squareImage} alt={billion.name} fill />
+      </div>
 
-      <h2>{billion.name}</h2>
-      <p>{billion.position}</p>
-      <p>{billion.country}</p>
-      <p>{billion.state}</p>
-      <p>{billion.city}</p>
-      <p>{billion.netWorth}</p>
-      <p>{billion.industries.join(', ')}</p>
-      <p>{billion.bio.join(', ')}</p>
-      <p>{billion.about.join(', ')}</p>
-      <div>
-        {billion.financialAssets.map((asset, key) => (
-          <div key={key}>
-            <p>{asset.companyName}</p>
-            <p>{asset.ticker}</p>
-            <p>{asset.numberOfShares}</p>
-            <p>{asset.sharePrice}</p>
-            <p>{asset.currencyCode}</p>
-            <p>{asset.exchangeRate}</p>
-            <p>{asset.interactive}</p>
-            <p>{asset.currentPrice}</p>
-            <p>{asset.exchange}</p>
-          </div>
-        ))}
+      <div className="billionDetailInfo">
+        <h2>Name: {billion.name}</h2>
+        <p>Country: {billion.country}</p>
+        <p>State: {billion.state}</p>
+        <p>City: {billion.city}</p>
+        <p>Net Worth: ${(billion.netWorth / 1000).toFixed(0)}M</p>
+        <p>Industries: {billion.industries.join(', ')}</p>
+        <p>Bio: {billion.bio.join(', ')}</p>
+        <p>About: {billion.about.join(', ')}</p>
+        <h3>Financial Assets</h3>
+        <div className="financialAssets">
+          {billion.financialAssets.map((asset, key) => (
+            <div className="financialAssetItem" key={key}>
+              <p>{asset.companyName}</p>
+              <p>{asset.ticker}</p>
+              <p>{asset.numberOfShares}</p>
+              <p>{asset.sharePrice}</p>
+              <p>{asset.currencyCode}</p>
+              <p>{asset.exchangeRate}</p>
+              <p>{asset.interactive}</p>
+              <p>{asset.currentPrice}</p>
+              <p>{asset.exchange}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
